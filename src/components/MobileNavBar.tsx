@@ -40,7 +40,7 @@ function MobileNavBar(
                     alt="click to search" 
                     height={35} 
                     width={35} 
-                    style={{ width: '15%', height: 'auto' }}
+                    style={{ width: 'auto', height: 'auto' }}
                     className="hover:cursor-pointer"
                     onClick={() => setShowSearch(!showSearch)} />
             </div>
