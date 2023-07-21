@@ -4,25 +4,26 @@ import { useContext } from "react"
 import Link from "next/link"
 import Image from "next/image"
 
-const categories = [
-    { name:"Skiing", slug:"skiing" }, { name:"Canada", slug:"canada" }
-]
-
-function NavBar() {
+function NavBar(
+    { categories }: { categories:blogCategory[] }
+) {
   return (
     <div className="mx-auto px-10 mb-8">
         <div className="w-full py-8 z-10 relative hidden lg:flex justify-between">
             <Link href={'/'}>
                 <Image 
-                    src={"/brand/ridge-proper-text.png"} 
+                    src={"/brand/ridge-proper-logo-full.png"} 
                     alt="ridge proper logo" 
                     height={35} 
-                    width={150}
+                    width={200}
                     style={{ width: 'auto', height: 'auto' }} />
             </Link>
             <div>
                 { categories.map((category) => (
-                    <Link key={category.slug} href={`/category/${category.slug}`} >
+                    <Link 
+                        key={category.slug} 
+                        href={`/category/${category.slug}`} 
+                        className="p-2" >
                         {category.name}
                     </Link>
                 )) }
