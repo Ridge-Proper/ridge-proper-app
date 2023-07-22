@@ -1,6 +1,6 @@
 interface blogPost {
     node: {
-        author: blogAuthor,
+        author: blogAuthor
         createdAt: string
         slug: string
         title: string
@@ -13,7 +13,7 @@ interface blogPost {
 }
 
 interface blogAuthor {
-    bio?: string,
+    bio?: string
     name: string
     id: string
     photo: { 
@@ -22,6 +22,15 @@ interface blogAuthor {
 }
 
 interface blogCategory {
-    name:string
-    slug:string
+    name: string
+    slug: string
+}
+
+interface blogPostDetails {
+    title: string
+    featuredImage: {
+        url: string
+    }
+    createdAt: string
+    slug: string
 }
