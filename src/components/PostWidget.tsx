@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { getRecentPosts, getSimilarPosts } from '@/services/graphql'
 
 function PostWidget(
-  { categories }: { categories:blogCategory[] }
+  { slug, categories }: { slug:string, categories:string[] }
 ) {
   const [relatedPosts, setRelatedPosts] = useState<blogPostDetails[]>([])
   const pathname = usePathname()
@@ -18,12 +18,10 @@ function PostWidget(
       getRecentPosts()
         .then((result:blogPostDetails[]) => setRelatedPosts(result))
     } else {
-      getSimilarPosts()
+      getSimilarPosts(slug, categories)
         .then((result:blogPostDetails[]) => setRelatedPosts(result))
     }
   }, [pathname])
-
-  console.log(relatedPosts)
 
   return (
     <div className='bg-white shadow-lg rounded-lg p-8 mb-8'>

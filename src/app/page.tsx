@@ -4,7 +4,7 @@ import Categories from "@/components/Categories"
 import { getPosts } from "@/services/graphql"
 
 export default async function Home() {
-  const posts:blogPost[] = await getPosts()
+  const posts:blogPostExcerpt[] = await getPosts()
 
   return (
     <div className='container mx-auto px-10 mb-8'>
@@ -14,7 +14,7 @@ export default async function Home() {
         </div>
         <div className='lg:col-span-4 col-span-1'>
             <div className='lg:sticky relative top-8'>
-              <PostWidget categories={[]}/>
+              <PostWidget slug={""} categories={[]} />
               <Categories />
             </div>
         </div>

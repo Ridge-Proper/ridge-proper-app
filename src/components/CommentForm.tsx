@@ -1,6 +1,8 @@
 import React from 'react'
 
-const CommentForm = () => {
+const CommentForm = (
+  { slug }: { slug:string }
+) => {
   return (
     <div>CommentForm</div>
   )

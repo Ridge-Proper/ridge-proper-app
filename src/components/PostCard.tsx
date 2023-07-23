@@ -2,17 +2,15 @@ import moment from "moment"
 import Link from "next/link"
 import Image from "next/image"
 
-function PostCard({ post }:{ post:blogPost }) {
+function PostCard({ post }:{ post:blogPostExcerpt }) {
   return (
     <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
-      <div className="relative overflow-hidden shadow-md pb-80 mb-6">
-        <Image 
-          src={post.node.featuredImage.url} 
-          alt={post.node.title} 
-          height={35} 
-          width={200}
-          style={{ width: '100%', height: '80' }} 
-          className="object-top absolute object-cover shadow-lg rounded-t-lg lg:rounded-lg" />
+      <div className='relative overflow-hidden shadow-md mb-6 pb-80'>
+        <Image
+          src={post.node.featuredImage.url}
+          alt={post.node.title}
+          fill={true}
+          className="object-top rounded-t-lg object-cover" />
       </div>
       <h1 className="transition duration-100 text-center mb-8 cursor-pointer hover:text-[#DDB109] text-3xl font-semibold" >
           <Link
