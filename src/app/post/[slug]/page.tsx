@@ -22,7 +22,7 @@ const PostDetails = async (
                     <Comments slug={postData.slug} />
                 </div>
                 <div className='col-span-1 lg:col-span-4'>
-                    <div className='relative lg:sticky top-8'>
+                    <div className='relative lg:sticky top-8 mt-8'>
                         <PostWidget slug={postData.slug} categories={postData.categories.map((category:blogCategory) => category.slug)} />
                         <Categories />
                     </div>
