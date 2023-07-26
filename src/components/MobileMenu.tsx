@@ -1,4 +1,5 @@
 import { useRouter } from "next/navigation"
+import { blogCategory } from "@/types/interfaces"
 
 function MobileMenu(
     { 

@@ -1,4 +1,5 @@
 import { request, gql } from 'graphql-request'
+import { commentObj } from '@/types/interfaces'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || ""
 
@@ -127,4 +128,16 @@ export const getPostDetails = async (slug:string) => {
     const postDetails:any = await request(graphqlAPI, query, { slug })
 
     return postDetails.post;
+}
+
+export const submitComment = async (obj: commentObj) => {
+    const result = await fetch('/api/comments', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+    })
+
+    return result.json();
 }

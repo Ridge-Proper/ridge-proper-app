@@ -1,4 +1,5 @@
-interface blogPostExcerpt {
+// import { NextApiRequest } from "next"
+export interface blogPostExcerpt {
     node: {
         author: blogAuthor
         createdAt: string
@@ -12,7 +13,7 @@ interface blogPostExcerpt {
     }
 }
 
-interface blogAuthor {
+export interface blogAuthor {
     bio?: string
     name: string
     id: string
@@ -21,12 +22,12 @@ interface blogAuthor {
     }
 }
 
-interface blogCategory {
+export interface blogCategory {
     name: string
     slug: string
 }
 
-interface blogPostDetails {
+export interface blogPostDetails {
     title: string
     featuredImage: {
         url: string
@@ -35,7 +36,7 @@ interface blogPostDetails {
     slug: string
 }
 
-interface blogPost {
+export interface blogPost {
     author: {
         bio: string
         name: string
@@ -59,3 +60,17 @@ interface blogPost {
         raw: any
     }
 }
+
+export interface commentObj {
+    name: string
+    email: string
+    comment: string
+    slug: string
+}
+
+// export interface commentRequestObj extends NextApiRequest {
+//     name: string
+//     email: string
+//     comment: string
+//     slug: string
+// }

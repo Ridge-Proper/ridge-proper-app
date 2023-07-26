@@ -1,6 +1,7 @@
 import moment from "moment"
 import Link from "next/link"
 import Image from "next/image"
+import { blogPostExcerpt } from "@/types/interfaces"
 
 function PostCard({ post }:{ post:blogPostExcerpt }) {
   return (
