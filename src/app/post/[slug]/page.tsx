@@ -6,7 +6,6 @@ import Author from '@/components/Author'
 import Comments from '@/components/Comments'
 import CommentForm from '@/components/CommentForm'
 import { getPostDetails } from '@/services/graphql'
-import { blogCategory } from '@/types/interfaces'
 
 const PostDetails = async (
     { params }: { params: { slug: string } }

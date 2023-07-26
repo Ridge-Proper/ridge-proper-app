@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { getCategories } from "@/services/graphql"
-import { blogCategory } from "@/types/interfaces"
 
 function Categories() {
   const [categories, setCategories] = useState<blogCategory[]>([])

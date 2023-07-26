@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { blogAuthor } from "@/types/interfaces"
 
 const Author = (
   { author }: { author:blogAuthor }

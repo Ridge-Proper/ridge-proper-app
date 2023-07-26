@@ -3,7 +3,6 @@
 import { useContext } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { blogCategory } from "@/types/interfaces"
 
 function NavBar(
     { categories }: { categories:blogCategory[] }

@@ -6,7 +6,6 @@ import moment from 'moment'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getRecentPosts, getSimilarPosts } from '@/services/graphql'
-import { blogPostDetails } from '@/types/interfaces'
 
 function PostWidget(
   { slug, categories }: { slug:string, categories:string[] }

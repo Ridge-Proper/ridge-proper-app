@@ -1,5 +1,4 @@
 import { useRouter } from "next/navigation"
-import { blogCategory } from "@/types/interfaces"
 
 function MobileMenu(
     { 
@@ -17,7 +16,7 @@ function MobileMenu(
 
     return (
         <ul 
-            className={`absolute space-y-2 bg-white p-4 shadow-md rounded text-xl ${showMenu ? "" : "hidden"}`} >
+            className={`absolute space-y-2 bg-white p-4 shadow-md rounded text-xl z-40 right-8 ${showMenu ? "" : "hidden"}`} >
             { categories.map((category) => (
                 <li 
                     onClick={() => {

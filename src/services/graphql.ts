@@ -1,5 +1,4 @@
 import { request, gql } from 'graphql-request'
-import { commentObj } from '@/types/interfaces'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || ""
 
