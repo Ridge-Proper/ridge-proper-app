@@ -6,14 +6,12 @@ const PostDetail = (
   { post }: { post: blogPost }
 ) => {
 
-  // console.log(post.content.raw.children[0])
-
   const getContentFragment = (index:number, text:any, obj:any, type?:string) => {
     let modifiedText = text;
 
     if (obj) {
       if (obj.bold) {
-        modifiedText = (<b key={index}>{text}</b>);
+        modifiedText = (<strong key={index}>{text}</strong>);
       }
 
       if (obj.italic) {
@@ -82,6 +80,17 @@ const PostDetail = (
             </span>
           </div>
         </div>
+        { post.videoLink ? 
+          <div className="mb-8">
+            <h3 className="text-xl text-center italic">Watch the madness here:</h3>
+            <iframe 
+              src={post.videoLink}
+              className="w-full p-2 h-96">
+            </iframe>
+          </div>
+        :
+          null
+        }
         { post.content.raw.children.map((typeObj:any, index:number) => {
           const children = typeObj.children.map((item:any, itemIndex:number) => getContentFragment(itemIndex, item.text, item))
 

@@ -3,6 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 
 function PostCard({ post }:{ post:blogPostExcerpt }) {
+
   return (
     <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
       <div className='relative overflow-hidden shadow-md mb-6 pb-80'>

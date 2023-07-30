@@ -59,6 +59,7 @@ interface blogPost {
     content: {
         raw: any
     }
+    videoLink?: string
 }
 
 interface commentObj {
@@ -66,6 +67,12 @@ interface commentObj {
     email: string
     comment: string
     slug: string
+}
+
+interface blogComment {
+    name: string
+    createdAt: string
+    comment: string
 }
 
 // export interface commentRequestObj extends NextApiRequest {

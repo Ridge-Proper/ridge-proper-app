@@ -5,7 +5,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || ""
 export const getPosts = async () => {
     const query = gql`
         query MyQuery {
-            postsConnection {
+            postsConnection (orderBy: createdAt_DESC) {
                 edges {
                     node {
                         author {
@@ -38,11 +38,50 @@ export const getPosts = async () => {
     return results.postsConnection.edges;
 }
 
+export const getPostsByCategory = async (slug:string) => {
+    const query = gql`
+        query GetCategoryPost ($slug: String!) {
+            postsConnection (
+                orderBy: createdAt_DESC
+                where: {categories_some: {slug: $slug}}
+                ) {
+                edges {
+                    node {
+                        author {
+                            bio
+                            name
+                            id
+                            photo {
+                                url
+                            }
+                        }
+                        createdAt
+                        slug
+                        title
+                        excerpt
+                        featuredImage {
+                            url
+                        }
+                        categories {
+                            name
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    `
+
+    const results:any = await request(graphqlAPI, query, { slug })
+
+    return results.postsConnection.edges;
+}
+
 export const getRecentPosts = async () => {
     const query = gql`
         query GetPostDetails() {
             posts(
-                orderBy: createdAt_ASC
+                orderBy: createdAt_DESC
                 last: 3
             ) {
                 title
@@ -120,6 +159,7 @@ export const getPostDetails = async (slug:string) => {
                 content {
                     raw
                 }
+                videoLink
             }
         }
     `
@@ -139,4 +179,19 @@ export const submitComment = async (obj: commentObj) => {
     })
 
     return result.json();
+}
+
+export const getComments = async (slug:string) => {
+    const query = gql`
+        query GetComments($slug: String!) {
+            comments(where: { post: { slug: $slug }}) {
+                name
+                createdAt
+                comment
+            }
+        }
+    `
+    const results:any = await request(graphqlAPI, query, { slug })
+
+    return results.comments;
 }

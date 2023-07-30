@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { submitComment } from '@/services/graphql'
 
 const CommentForm = (
   { slug }: { slug:string }
 ) => {
+
   const [error, setError] = useState(false)
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
   const [formData, setFormData] = useState(
@@ -15,6 +16,16 @@ const CommentForm = (
       email: ""
     }
   )
+
+  useEffect(() => {
+    setFormData(
+      {
+        ...formData, 
+        name: window.localStorage.getItem('name') || "",
+        email: window.localStorage.getItem('email') || "" 
+      }
+    )
+  },[])
 
   function handleChange(e: React.FormEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>): void {
     const {name, value} = e.currentTarget;
@@ -37,6 +48,9 @@ const CommentForm = (
       slug: slug
     }
 
+    // Save the user's name and email for the next time they comment
+    window.localStorage.setItem('name', formData.name)
+    window.localStorage.setItem('email', formData.email)
      
     submitComment(commentObj)
       .then((res) => {
@@ -67,13 +81,15 @@ const CommentForm = (
           className='py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700' 
           placeholder='Name'
           name='name' 
-          onChange={handleChange} />
+          onChange={handleChange} 
+          value={formData.name} />
           <input
           type='text'
           className='py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700' 
           placeholder='Email'
           name='email' 
-          onChange={handleChange} />
+          onChange={handleChange} 
+          value={formData.email} />
       </div>
       { error && <p className='text-xs text-red-500'>All fields are required.</p>}
       <div className='mt-8'>
