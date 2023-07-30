@@ -85,7 +85,7 @@ const PostDetail = (
             <h3 className="text-xl text-center italic">Watch the madness here:</h3>
             <iframe 
               src={post.videoLink}
-              className="w-full p-2 h-96">
+              className="w-full lg:w-2/3 md:w-4/5 p-2 h-96 mx-auto">
             </iframe>
           </div>
         :
