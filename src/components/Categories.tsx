@@ -21,7 +21,7 @@ function Categories() {
         <Link
           key={category.slug}
           href={`/category/${category.slug}`} >
-          <span className="cursor-pointer block pb-3 mb-3">
+          <span className="cursor-pointer block pb-3 mb-3 text-xl">
             {category.name}
           </span>
         </Link>

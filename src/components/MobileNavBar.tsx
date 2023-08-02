@@ -12,7 +12,7 @@ function MobileNavBar(
     // const [showSearch, setShowSearch] = useState<boolean>(false)
 
     return (
-        <div className="mx-auto px-8">
+        <div className="mx-auto px-6 py-4">
             <div className="lg:hidden z-10 flex justify-between w-full mb-4 items-center">
                 <Link href={'/'}>
                     <Image 

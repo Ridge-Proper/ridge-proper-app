@@ -4,7 +4,7 @@ const Author = (
   { author }: { author:blogAuthor }
 ) => {
   return (
-    <div className="text-center mt-20 mb-8 p-8 relative rounded-lg bg-[#7048CF] bg-opacity-20">
+    <div className="text-center mt-20 mb-8 p-8 relative rounded-lg bg-[#7048CF] bg-opacity-90">
       <div className="absolute left-5 -top-14">
         <Image
           alt={author.name}

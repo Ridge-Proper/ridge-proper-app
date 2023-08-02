@@ -12,11 +12,11 @@ export default async function Category (
     ))
 
     return (
-        <div className='container mx-auto px-10 mb-8'>
-            <h1 className="mb-8 text-3xl font-semibold">
-                Category: { category[0].name }
+        <div className='container mx-auto px-4 mb-8'>
+            <h1 className="mb-8 text-2xl lg:text-4xl font-semibold underline decoration-[#7048CF] underline-offset-4 decoration-4 decoration-double uppercase text-center lg:text-left">
+                { category[0].name }
             </h1>
-            <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
+            <div className='grid grid-cols-1 lg:grid-cols-12 lg:gap-12'>
                 <div className='lg:col-span-8 col-span-1'>
                 { posts.map((post, index) => <PostCard post={ post } key={ post.node.title } /> ) }
                 </div>

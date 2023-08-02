@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-
+        "bg_img" : "url('/bg.JPG')",
+        "bg_img_mobile" : "url('/bg_mobile.JPG')"
       },
     },
   },

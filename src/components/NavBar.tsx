@@ -8,8 +8,8 @@ function NavBar(
     { categories }: { categories:blogCategory[] }
 ) {
   return (
-    <div className="mx-auto px-10 mb-8">
-        <div className="w-full py-8 z-10 relative hidden lg:flex justify-between">
+    <div className="mx-auto px-10">
+        <div className="w-full pt-8 z-10 relative hidden lg:flex justify-between items-center">
             <Link href={'/'}>
                 <Image 
                     src={"/brand/ridge-proper-logo-full.png"} 
@@ -18,12 +18,13 @@ function NavBar(
                     width={200}
                     style={{ width: 'auto', height: 'auto' }} />
             </Link>
-            <div>
+            <div
+                className="space-x-2">
                 { categories.map((category) => (
                     <Link 
                         key={category.slug} 
                         href={`/category/${category.slug}`} 
-                        className="p-2" >
+                        className="py-2 px-4 text-xl font-semibold text-white bg-[#7048CF] rounded-md transition duration-100 hover:text-[#DDB109] shadow-md" >
                         {category.name}
                     </Link>
                 )) }

@@ -23,7 +23,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className={nunito.className + "bg-center bg-fixed bg-cover bg-bg_img_mobile lg:bg-bg_img"}>
         { 
           // add searchbar here
           // send search state as params to navs
