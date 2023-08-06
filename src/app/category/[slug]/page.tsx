@@ -13,7 +13,7 @@ export default async function Category (
 
     return (
         <div className='container mx-auto px-4 mb-8'>
-            <h1 className="mb-8 text-2xl lg:text-4xl font-semibold underline decoration-[#7048CF] underline-offset-4 decoration-4 decoration-double uppercase text-center lg:text-left">
+            <h1 className="mb-8 text-4xl font-semibold uppercase text-center lg:text-left text-white">
                 { category[0].name }
             </h1>
             <div className='grid grid-cols-1 lg:grid-cols-12 lg:gap-12'>

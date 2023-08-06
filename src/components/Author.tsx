@@ -16,7 +16,7 @@ const Author = (
       <h3 className="text-[#DDB109] my-4 text-2xl font-bold">
         {author.name}
       </h3>
-      <p className="text-black text-lg">
+      <p className="text-white text-lg">
         {author.bio}
       </p>
     </div>
